@@ -6,11 +6,10 @@ builder.Services.AddDaprClient();
 
 var app = builder.Build();
 
-app.MapGet("/publishmessage", async (DaprClient daprClient) => 
+app.MapGet("/publishmessage/{greetingName}", async (DaprClient daprClient, string greetingName) => 
 {
-    var message = "Hello from publisher";
-    await daprClient.PublishEventAsync("pubsubdemo", "messages", message);
-    Console.WriteLine($"Published message {message} on channel.");
+    await daprClient.PublishEventAsync("pubsubdemo", "greetingName", greetingName);
+    Console.WriteLine($"Requested greetings for {greetingName}.");
 
     return new OkResult();
 });
