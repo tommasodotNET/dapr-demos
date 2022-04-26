@@ -9,7 +9,7 @@ app.UseCloudEvents();
 app.UseRouting();
 app.UseEndpoints(endpoints => endpoints.MapSubscribeHandler());
 
-app.MapPost("/", ([FromBody] string message) => 
+app.MapPost("/message", ([FromBody] string message) => 
 {
     Console.WriteLine($"Received message {message} on channel.");
     return new OkResult();
