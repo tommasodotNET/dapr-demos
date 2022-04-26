@@ -1,0 +1,13 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: pubsubdemo
+  namespace: daprdemos-pubsub
+spec:
+  type: pubsub.azure.servicebus
+  version: v1
+  metadata:
+  - name: connectionString # Required
+    secretKeyRef:
+      name: sb-connectionstring
+      key:  connectionstring
