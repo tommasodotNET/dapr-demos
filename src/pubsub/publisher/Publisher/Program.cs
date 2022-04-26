@@ -1,4 +1,5 @@
 using Dapr.Client;
+using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDaprClient();
@@ -10,6 +11,8 @@ app.MapGet("/publishmessage", async (DaprClient daprClient) =>
     var message = "Hello from publisher";
     await daprClient.PublishEventAsync("pubsubdemo", "messages", message);
     Console.WriteLine($"Published message {message} on channel.");
+
+    return new OkResult();
 });
 
 app.Run();
