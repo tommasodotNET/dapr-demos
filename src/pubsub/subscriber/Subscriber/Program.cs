@@ -10,6 +10,8 @@ app.UseCloudEvents();
 app.UseRouting();
 app.UseEndpoints(endpoints => endpoints.MapSubscribeHandler());
 
+app.MapGet("/probe", () => new OkResult());
+
 app.MapGet("/", async (DaprClient daprClient) => await daprClient.GetStateAsync<string>("statestore", "greetingName"));
 
 app.MapPost("/greetingName", async (DaprClient daprClient, [FromBody] string greetingName) => 
