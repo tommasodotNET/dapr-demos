@@ -2,7 +2,9 @@
 
 The solution contains demos for various Dapr scenarios.
 
-## Pub Sub
+## Scenarios
+
+### Pub Sub
 
 The pub sub scenario demonstrates how to handle pub/sub messages using dapr. 
 
@@ -12,7 +14,7 @@ The **subsriber** microservice has a ```/greetingName``` endpoint that subscribe
 
 For the purpose of this demo, we have used an Azure Service Bus (Standard Tier, in order to leverage Topics) for the messages and an Azure Redis Cache for the state store.
 
-### K8S Configuration
+#### K8S Configuration
 
 On k8s we need to create the secrets for the Service Bus connection string and redis password.
 
@@ -28,14 +30,17 @@ Also, dapr components which can be found in [dapr/components](./src/pubsub/dapr/
 kubectl apply -f src/pubsub/dapr/components/pubsub.yaml
 kubectl apply -f src/pubsub/dapr/components/statestore.yaml
 ```
-## Dapr Configuration
+
+## Generic Info
+
+### Dapr Configuration
 
 To configure Dapr on your cluster, please reference the [Dapr documentation](https://docs.dapr.io/developing-applications/integrations/azure/azure-kubernetes-service-extension/#create-the-extension-and-install-dapr-on-your-aks-cluster).
 
-## Build Docker Images
+### Build Docker Images
 
 In each microservice folder, there is a `build.cmd` file, which will build the docker image.
 
-## Helm Deploy
+### Helm Deploy
 
 To deploy the microservices to Kubernetes, you can leverage the helm chart provided inside each microservice folder.
