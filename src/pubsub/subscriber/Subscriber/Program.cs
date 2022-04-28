@@ -12,13 +12,13 @@ app.UseEndpoints(endpoints => endpoints.MapSubscribeHandler());
 
 app.MapGet("/probe", () => new OkResult());
 
-app.MapGet("/", async (DaprClient daprClient) => await daprClient.GetStateAsync<string>("statestore", "greetingName"));
+app.MapGet("/", async (DaprClient daprClient) => await daprClient.GetStateAsync<string>("statestore", "greetingname"));
 
 app.MapPost("/greetingName", async (DaprClient daprClient, [FromBody] string greetingName) => 
 {
     Console.WriteLine($"Hi {greetingName}!");
-    await daprClient.SaveStateAsync("statestore", "greetingName", greetingName);
+    await daprClient.SaveStateAsync("statestore", "greetingname", greetingName);
     return new OkResult();
-}).WithTopic("pubsubdemo", "messages");
+}).WithTopic("pubsubdemo", "greetingname");
 
 app.Run();
