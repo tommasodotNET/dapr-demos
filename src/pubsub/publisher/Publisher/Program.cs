@@ -6,11 +6,9 @@ builder.Services.AddDaprClient();
 
 var app = builder.Build();
 
-app.MapGet("/probe", () => new OkResult());
-
 app.MapGet("/publishmessage/{greetingName}", async (DaprClient daprClient, string greetingName) => 
 {
-    await daprClient.PublishEventAsync("pubsubdemo", "greetingname", greetingName);
+    await daprClient.PublishEventAsync("pubsub", "greetingname", greetingName);
     Console.WriteLine($"Requested greetings for {greetingName}.");
 
     return new OkResult();
