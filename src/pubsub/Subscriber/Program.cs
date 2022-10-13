@@ -15,4 +15,6 @@ app.MapPost("/greetingName", async ([FromBody] string greetingName) =>
     return new OkResult();
 }).WithTopic("pubsub", "greetingname");
 
+// In ASP.NET Core you would use the decorator [Topic("pubsub", "greetingname")] on the action
+
 app.Run();
