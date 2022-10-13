@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IDemoActor", "IDemoActor\IDemoActor.csproj", "{44B00620-5D74-4966-A14F-5FD8650CF51A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoActor", "DemoActor\DemoActor.csproj", "{86801FE2-2688-4495-AD90-03CB26EAAAC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActorClient", "ActorClient\ActorClient.csproj", "{30C974BB-E150-47EB-B651-E444C5EF8B70}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{44B00620-5D74-4966-A14F-5FD8650CF51A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44B00620-5D74-4966-A14F-5FD8650CF51A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44B00620-5D74-4966-A14F-5FD8650CF51A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44B00620-5D74-4966-A14F-5FD8650CF51A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86801FE2-2688-4495-AD90-03CB26EAAAC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86801FE2-2688-4495-AD90-03CB26EAAAC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86801FE2-2688-4495-AD90-03CB26EAAAC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86801FE2-2688-4495-AD90-03CB26EAAAC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30C974BB-E150-47EB-B651-E444C5EF8B70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30C974BB-E150-47EB-B651-E444C5EF8B70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30C974BB-E150-47EB-B651-E444C5EF8B70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30C974BB-E150-47EB-B651-E444C5EF8B70}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
