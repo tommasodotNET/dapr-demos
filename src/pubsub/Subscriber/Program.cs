@@ -1,4 +1,3 @@
-using Dapr.Client;
 using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,7 +9,7 @@ app.UseCloudEvents();
 app.UseRouting();
 app.UseEndpoints(endpoints => endpoints.MapSubscribeHandler());
 
-app.MapPost("/greetingName", async (DaprClient daprClient, [FromBody] string greetingName) => 
+app.MapPost("/greetingName", async ([FromBody] string greetingName) => 
 {
     Console.WriteLine($"Hi {greetingName}!");
     return new OkResult();
