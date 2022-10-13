@@ -11,7 +11,7 @@ using var daprClient = new DaprClientBuilder().Build();
 
 Console.WriteLine("Processing batch..");
 
-string jsonFile = File.ReadAllText("../../../orders.json");
+string jsonFile = File.ReadAllText("../orders.json");
 var ordersArray = JsonSerializer.Deserialize<Orders>(jsonFile);
 
 foreach(Order ord in ordersArray?.orders ?? new Order[] {}){
