@@ -1,58 +1,66 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.245.2/containers/dotnet
 {
-	"name": "C# (.NET)",
-	"build": {
-		"dockerfile": "Dockerfile",
-		"args": { 
-			// Update 'VARIANT' to pick a .NET Core version: 3.1, 6.0
-			// Append -bullseye or -focal to pin to an OS version.
-			"VARIANT": "6.0-bullseye",
-			// Options
-			"NODE_VERSION": "none"
-		}
+	"name": "MyDaprDemos",
+	"image": "darquewarrior/daprdevcontainer:0.0.11",
+	//"dockerFile": "./Dockerfile",
+	"remoteEnv": {
+		"PATH": "${containerEnv:PATH}:/home/codespace/.dapr/bin"
 	},
-
-	// Configure tool-specific properties.
-	"customizations": {
-		// Configure properties specific to VS Code.
-		"vscode": {	
-			// Add the IDs of extensions you want installed when the container is created.
-			"extensions": [
-				"ms-dotnettools.csharp"
-			]
-		}
-	},
-
+	// Add the IDs of extensions you want installed when the container is created.
+	// Note that some extensions may not work in Alpine Linux. See https://aka.ms/vscode-remote/linux.
+	"extensions": [
+		"doggy8088.netcore-snippets",
+		"ms-azuretools.vscode-dapr",
+		"GitHub.vscode-pull-request-github",
+		"ms-azuretools.vscode-docker",
+		"humao.rest-client",
+		"ms-azuretools.vscode-bicep",
+		"ms-vscode.PowerShell",
+		"cweijan.vscode-redis-client",
+		"ms-dotnettools.csharp",
+		"hookyqr.beautify",
+		"simonsiefke.prettier-vscode",
+		"streetsidesoftware.code-spell-checker",
+		"ms-azuretools.vscode-tye",
+		"ms-kubernetes-tools.vscode-kubernetes-tools",
+		"HashiCorp.terraform",
+		"vscjava.vscode-java-pack",
+		"ms-python.python",
+		"mindaro.mindaro"
+	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [5000, 5001],
-
-	// [Optional] To reuse of your local HTTPS dev cert:
-	//
-	// 1. Export it locally using this command:
-	//    * Windows PowerShell:
-	//        dotnet dev-certs https --trust; dotnet dev-certs https -ep "$env:USERPROFILE/.aspnet/https/aspnetapp.pfx" -p "SecurePwdGoesHere"
-	//    * macOS/Linux terminal:
-	//        dotnet dev-certs https --trust; dotnet dev-certs https -ep "${HOME}/.aspnet/https/aspnetapp.pfx" -p "SecurePwdGoesHere"
-	// 
-	// 2. Uncomment these 'remoteEnv' lines:
-	//    "remoteEnv": {
-	// 	      "ASPNETCORE_Kestrel__Certificates__Default__Password": "SecurePwdGoesHere",
-	//        "ASPNETCORE_Kestrel__Certificates__Default__Path": "/home/vscode/.aspnet/https/aspnetapp.pfx",
-	//    },
-	//
-	// 3. Do one of the following depending on your scenario:
-	//    * When using GitHub Codespaces and/or Remote - Containers:
-	//      1. Start the container
-	//      2. Drag ~/.aspnet/https/aspnetapp.pfx into the root of the file explorer
-	//      3. Open a terminal in VS Code and run "mkdir -p /home/vscode/.aspnet/https && mv aspnetapp.pfx /home/vscode/.aspnet/https"
-	//
-	//    * If only using Remote - Containers with a local container, uncomment this line instead:
-	//      "mounts": [ "source=${env:HOME}${env:USERPROFILE}/.aspnet/https,target=/home/vscode/.aspnet/https,type=bind" ],
-
+	"forwardPorts": [
+		8000,
+		9411,
+		30000,
+		30001
+	],
+	// add labels
+	"portsAttributes": {
+		"6379": {
+			"label": "dapr_Redis"
+		},
+		"8000": {
+			"label": "Tye"
+		},
+		"9411": {
+			"label": "dapr_Zipkin"
+		},
+		"50005": {
+			"label": "dapr_Placement"
+		}
+	},
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "dotnet restore",
-
-	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	// "postCreateCommand": "uname -a",
+	// Replace when using a ptrace-based debugger like C++, Go, and Rust
+	// "runArgs": [ "--init", "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined" ],
+	"runArgs": [
+		"--init",
+		"--privileged"
+	],
+	"mounts": [
+		"source=dind-var-lib-docker,target=/var/lib/docker,type=volume"
+	],
+	"overrideCommand": false,
+	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "vscode"
 }
