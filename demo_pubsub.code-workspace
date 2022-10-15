@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": "./src/pubsub"
+		},
+		{
+			"path": "src/pubsub/.vscode"
 		}
 	],
 	"settings": {
@@ -10,7 +13,6 @@
 			"**/bin": true,
 			"**/.images": true,
 			"**/obj": true,
-			"**/.vscode": true,
 			".gitignore": true,
 			"demo_pubsub.code-workspace": true
 		},
