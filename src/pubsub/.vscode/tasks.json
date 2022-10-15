@@ -76,9 +76,12 @@
         {
             "appId": "publisher",
             "appPort": 5000,
+            "httpPort": 3500,
+            "grpcPort": 50001,
             "label": "dapr-debug-publisher",
             "type": "dapr",
-            "dependsOn": "build-publisher"
+            "dependsOn": "build-publisher",
+            "componentsPath": "./dapr/components"
         },
         {
             "appId": "publisher",
@@ -88,9 +91,12 @@
         {
             "appId": "subscriber",
             "appPort": 5001,
+            "httpPort": 3500,
+            "grpcPort": 50001,
             "label": "dapr-debug-subscriber",
             "type": "dapr",
-            "dependsOn": "build-subscriber"
+            "dependsOn": "build-subscriber",
+            "componentsPath": "./dapr/components"
         },
         {
             "appId": "subscriber",
