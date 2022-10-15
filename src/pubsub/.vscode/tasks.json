@@ -2,7 +2,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build",
+            "label": "build-publisher",
             "command": "dotnet",
             "type": "process",
             "args": [
@@ -14,7 +14,7 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "publish",
+            "label": "publish-publisher",
             "command": "dotnet",
             "type": "process",
             "args": [
@@ -26,7 +26,7 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "watch",
+            "label": "watch-publisher",
             "command": "dotnet",
             "type": "process",
             "args": [
@@ -36,6 +36,66 @@
                 "${workspaceFolder}/Publisher/Publisher.csproj"
             ],
             "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build-subscriber",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Subscriber/Subscriber.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "publish-subscriber",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "publish",
+                "${workspaceFolder}/Subscriber/Subscriber.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "watch-subscriber",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "watch",
+                "run",
+                "--project",
+                "${workspaceFolder}/Subscriber/Subscriber.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "appId": "publisher",
+            "appPort": 5000,
+            "label": "dapr-debug-publisher",
+            "type": "dapr",
+            "dependsOn": "build-publisher"
+        },
+        {
+            "appId": "publisher",
+            "label": "daprd-down-publisher",
+            "type": "daprd-down"
+        },
+        {
+            "appId": "subscriber",
+            "appPort": 5001,
+            "label": "dapr-debug-subscriber",
+            "type": "dapr",
+            "dependsOn": "build-subscriber"
+        },
+        {
+            "appId": "subscriber",
+            "label": "daprd-down-subscriber",
+            "type": "daprd-down"
         }
     ]
 }
