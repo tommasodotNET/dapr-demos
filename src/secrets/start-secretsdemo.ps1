@@ -1,0 +1,1 @@
+dapr run --app-id secretsdemo --dapr-http-port 3500 --components-path ./dapr/components
