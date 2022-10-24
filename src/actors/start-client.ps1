@@ -1,0 +1,2 @@
+cd ./ActorClient
+dotnet run
