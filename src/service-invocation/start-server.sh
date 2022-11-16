@@ -1,2 +1,1 @@
-cd ./Server
-dapr run --app-id server --app-port 5000 -- dotnet run --components-path ./dapr/components
+dapr run --app-id server --app-port 5000 -- dotnet run --project ./Server/

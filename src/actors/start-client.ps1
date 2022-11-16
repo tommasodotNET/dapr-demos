@@ -1,2 +1,1 @@
-cd ./ActorClient
-dotnet run
+dotnet run --project ./ActorClient/

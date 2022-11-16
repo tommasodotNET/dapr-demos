@@ -1,2 +1,1 @@
-cd ./StateStoreDemo
-dapr run --app-id statestore -- dotnet run --components-path ./dapr/components
+dapr run --app-id statestore --components-path ./dapr/components -- dotnet run --project ./StateStoreDemo/
