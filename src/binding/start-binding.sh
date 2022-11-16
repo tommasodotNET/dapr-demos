@@ -1,2 +1,1 @@
-cd ./BindingDemo
-dapr run --app-id bindingdemo -- dotnet run --components-path ./dapr/components
+dapr run --app-id bindingdemo --components-path ./dapr/components -- dotnet run --project ./BindingDemo/
