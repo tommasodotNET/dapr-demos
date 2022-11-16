@@ -38,14 +38,7 @@ try
 }
 catch (ActorMethodInvocationException ex)
 {
-    if (ex.InnerException is NotImplementedException)
-    {
-        Console.WriteLine($"Got Correct Exception from actor method invocation.");
-    }
-    else
-    {
-        Console.WriteLine($"Got Incorrect Exception from actor method invocation. Exception {ex.InnerException}");
-    }
+    Console.WriteLine($"Got Incorrect Exception from actor method invocation. Exception {ex.InnerException}");
 }
 
 // Making calls without Remoting, this shows method invocation using InvokeMethodAsync methods, the method name and its payload is provided as arguments to InvokeMethodAsync methods.
