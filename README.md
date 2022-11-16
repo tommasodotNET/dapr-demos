@@ -4,12 +4,12 @@ The solution contains demos for various Dapr scenarios.
 
 ## Scenarios
 
-- [Actor Demo](src/actors/README.md)
-- [Binding Demo](src/binding/README.md)
-- [PubSub Demo](src/pubsub/README.md)
-- [Secrets Demo](src/secrets/README.md)
-- [Service Invocation Demo](src/service-invocation/README.md)
-- [State Management Demo](src/statestore/README.md)
+- [Actor Demo](src/actors/)
+- [Binding Demo](src/binding/)
+- [PubSub Demo](src/pubsub/)
+- [Secrets Demo](src/secrets/)
+- [Service Invocation Demo](src/service-invocation/)
+- [State Management Demo](src/statestore/)
 
 ### Dapr Configuration
 
