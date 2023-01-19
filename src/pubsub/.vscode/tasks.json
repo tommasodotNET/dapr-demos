@@ -76,7 +76,7 @@
         {
             "appId": "publisher",
             "appPort": 5000,
-            "httpPort": 3500,
+            "httpPort": 3501,
             "grpcPort": 50001,
             "label": "dapr-debug-publisher",
             "type": "dapr",
