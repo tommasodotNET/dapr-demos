@@ -4,6 +4,8 @@ The solution contains demos for various Dapr scenarios.
 
 ## Scenarios
 
+These are the available demos:
+
 - [Actor Demo](src/actors/)
 - [Binding Demo](src/binding/)
 - [PubSub Demo](src/pubsub/)
